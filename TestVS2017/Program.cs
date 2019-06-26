@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TestVS2017
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            Customer customer = new Customer(" C1", "Inecom Pte Ltd", "12, Tannery Road");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new Form1());
+            Person contact = new Person("Goh", "General Manager");
+            Customer customer = new Customer("C01", "Customer1", "1 Tannery Road",BusinessType.Manufacturing,contact);
             MessageBox.Show(customer.DisplayCustomer(customer));
         }
     }
